@@ -16,10 +16,11 @@ public class Led {
     private int B;
     private boolean selected = false;
 
-    public Led(int id, int x, int y, int R, int G, int B) {
+    public Led(int id, int x, int y, int radius, int R, int G, int B) {
         this.id = id;
         this.x = x;
         this.y = y;
+        this.radius = radius;
         this.R = R;
         this.G = G;
         this.B = B;
@@ -59,7 +60,7 @@ public class Led {
         return y;
     }
 
-    public int getRadius() {
+    public static int getRadius() {
         return radius;
     }
 
@@ -82,7 +83,8 @@ public class Led {
         else {
             graphics2D.setColor(Color.WHITE);
         }
-        graphics2D.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+        int halfHeight = (int)(radius / 0.88);
+        graphics2D.fillRect(x - halfHeight, y - halfHeight, halfHeight * 2, halfHeight * 2);
         graphics2D.setColor(new Color(R, G, B));
         graphics2D.fillOval(x - radius, y - radius, radius * 2, radius * 2);
     }
@@ -93,5 +95,9 @@ public class Led {
 
     public boolean isSelected(){
         return selected;
+    }
+
+    public int getId() {
+        return id;
     }
 }

@@ -7,9 +7,10 @@ import javax.swing.*;
  */
 public class ControllPanel extends JPanel {
 
-    public ControllPanel(JButton addLedButton) {
+    public ControllPanel(JButton addLedButton, JButton saveLedButton) {
         Box verticalBox = Box.createVerticalBox();
         add(verticalBox);
         verticalBox.add(addLedButton);
+        verticalBox.add(saveLedButton);
     }
 }
